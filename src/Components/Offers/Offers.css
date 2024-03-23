@@ -1,0 +1,10 @@
+@media (max-width: 700px) {
+  .offers {
+    max-height: 30vh;
+    padding-left: 2vw;
+    padding-right: 2vw;
+  }
+  .offers-right img {
+    height: 100%;
+  }
+}

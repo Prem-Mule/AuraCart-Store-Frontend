@@ -1,0 +1,9 @@
+@media (max-width: 800px) {
+  .hero {
+    height: fit-content;
+  }
+  .hero-right{
+    height: 100%;
+    
+  }
+}

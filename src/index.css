@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "FoundersGrotesk";
+  src: url("./Fonts/FoundersGrotesk-Semibold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "NeueMontreal";
+  src: url("./Fonts/NeueMontreal-Regular.woff") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+*::selection {
+  color: aquamarine;
+}

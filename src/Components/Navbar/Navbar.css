@@ -1,0 +1,14 @@
+@media (max-width: 800px) {
+  * {
+    font-size: 10px;
+  }
+  .categories ul {
+    flex-wrap: wrap;
+  }
+  
+}
+@media(max-width:360px){
+    .categories>ul{
+        display: none;
+    }
+}

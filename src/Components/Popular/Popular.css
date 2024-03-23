@@ -1,0 +1,10 @@
+@media (max-width: 800px) {
+  .popular-item {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .popular {
+    padding-left: 1vw;
+    padding-right: 1vw;
+  }
+}
