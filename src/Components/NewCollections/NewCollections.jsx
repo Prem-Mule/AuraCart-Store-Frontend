@@ -1,12 +1,14 @@
 /* eslint-disable no-unused-vars */
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import new_collection from "../Assets/new_collections";
 import Item from "../Item/Item";
+import { ShopContext } from "../../Context/ShopContext";
 
 const NewCollections = () => {
+  const { baseURL } = useContext(ShopContext);
   const [newcollections, setnewcollections] = useState([]);
   useEffect(() => {
-    let res = fetch("http://localhost:4000/newcollections")
+    let res = fetch(`${baseURL}/newcollections`)
       .then((response) => response.json())
       .then((data) => {
         setnewcollections(data);

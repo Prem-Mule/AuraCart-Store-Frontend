@@ -1,12 +1,15 @@
 /* eslint-disable no-unused-vars */
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import data_product from "../Assets/data";
 import Item from "../Item/Item";
 import "../Popular/Popular.css";
+import { ShopContext } from "../../Context/ShopContext";
 const Popular = () => {
+  const { baseURL } = useContext(ShopContext);
+
   const [popularproducts, setpopularproducts] = useState([]);
   useEffect(() => {
-    let res = fetch("http://localhost:4000/popularproducts")
+    let res = fetch(`${baseURL}/popularproducts`)
       .then((res) => res.json())
       .then((data) => {
         setpopularproducts(data);
