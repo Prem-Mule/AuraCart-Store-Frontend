@@ -8,14 +8,14 @@ export const ShopContext = createContext();
 export const ShopContextProvider = ({ children }) => {
   const [cartItems, setcartItems] = useState({});
   const [all_product, setall_product] = useState([]);
-
+  const baseURL = "https://auracart-store-backend.onrender.com";
   useEffect(() => {
-    fetch("http://localhost:4000/allproducts")
+    fetch(`${baseURL}/allproducts`)
       .then((res) => res.json())
       .then((data) => {
         setall_product(data);
         if (localStorage.getItem("auth-token")) {
-          let res = fetch("http://localhost:4000/getcart", {
+          let res = fetch(`${baseURL}/getcart`, {
             method: "GET",
             headers: {
               Accept: "application/form-data",
@@ -25,7 +25,7 @@ export const ShopContextProvider = ({ children }) => {
           })
             .then((res) => res.json())
             .then((data) => setcartItems(data.cartdata));
-          // fetch("http://localhost:4000/getcart", {
+          // fetch(`${baseURL}/getcart", {
           //   method: "POST",
           //   headers: {
           //     Accept: "application/form-data",
@@ -53,7 +53,7 @@ export const ShopContextProvider = ({ children }) => {
 
   const addtoCart = (itemId) => {
     if (localStorage.getItem("auth-token")) {
-      fetch("http://localhost:4000/addtocart", {
+      fetch(`${baseURL}/addtocart`, {
         method: "POST",
         headers: {
           Accept: "application/form-data",
@@ -75,7 +75,7 @@ export const ShopContextProvider = ({ children }) => {
 
   const removeFromCart = (itemId) => {
     if (localStorage.getItem("auth-token")) {
-      fetch("http://localhost:4000/removefromcart", {
+      fetch(`${baseURL}/removefromcart`, {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -127,6 +127,7 @@ export const ShopContextProvider = ({ children }) => {
     removeFromCart,
     getTotalCartAmmount,
     getCountOfCartItems,
+    baseURL,
   };
 
   return (

@@ -1,15 +1,17 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { ShopContext } from "../Context/ShopContext";
 
 const LoginSignup = () => {
   const [state, setstate] = useState("login");
+  const { baseURL } = useContext(ShopContext);
   const [formData, setformData] = useState({
     name: "",
     email: "",
     password: "",
   });
   const login = async () => {
-    let response = await fetch("http://localhost:4000/login", {
+    let response = await fetch(`${baseURL}/login`, {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -29,7 +31,7 @@ const LoginSignup = () => {
     console.log("login executed", formData);
   };
   const signup = async () => {
-    let response = await fetch("http://localhost:4000/signup", {
+    let response = await fetch(`${baseURL}/signup`, {
       method: "POST",
       headers: {
         Accept: "application/json",
